@@ -1,5 +1,6 @@
 import UIKit
 import bottom
+import SnapKit
 
 public class NameListView: UIView {
     let names: [String]
@@ -21,23 +22,20 @@ public class NameListView: UIView {
 
 private extension NameListView {
     func setUpList(names: [String]) {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
+        let stackView       = UIStackView()
+        stackView.axis      = .vertical
+        stackView.alignment = .center
+        
         names.forEach {
-            let label = UILabel(frame: .zero)
+            let label  = UILabel(frame: .zero)
             label.text = $0
             stackView.addArrangedSubview(label)
         }
         
         addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraints(
-            [
-                stackView.topAnchor.constraint(equalTo: topAnchor),
-                stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-                stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
-            ]
-        )
+        stackView.snp.makeConstraints { (make) -> Void in
+            make.top.leading.trailing.equalTo(self)
+        }
     }
 }

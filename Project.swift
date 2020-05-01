@@ -19,6 +19,7 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                  .project(target: "middle", path: "Modules/middle"),
+                 .cocoapods(path: ".")
             ]
         ),
         .init(

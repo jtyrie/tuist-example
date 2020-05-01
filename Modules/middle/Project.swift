@@ -19,6 +19,7 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                  .project(target: "bottom", path: "../bottom"),
+                 .cocoapods(path: "../../")
             ]
         ),
         .init(
@@ -29,7 +30,8 @@ let project = Project(
             infoPlist: .extendingDefault(with: [ "UIMainStoryboardFile" : "" ]),
             sources: ["Sample/**"],
             dependencies: [
-                .target(name: "middle")
+                .target(name: "middle"),
+                .cocoapods(path: "../../")
             ]
         ),
         .init(
