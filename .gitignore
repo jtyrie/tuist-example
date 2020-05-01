@@ -65,3 +65,7 @@ DerivedData/
 ### Tuist derived files ###
 graph.dot
 Derived/
+
+### Podfiles
+*Podfile.lock
+*Pods*
